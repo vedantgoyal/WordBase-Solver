@@ -1,11 +1,3 @@
-"""
-Functions:
-grid generate(self)
-__init__(self,grid)
-__str__(self)
-word_generate(self,start_tuple,grid)
-"""
-
 import poc_grid 
 
 WORDFILE = "assets_scrabble_words3.txt"
@@ -22,7 +14,9 @@ class WordBase(poc_grid.Grid):
         self._side=side
     
     def words_generate(self,start,depth):
-        
+        """
+        Find words in the grid
+        """
         def word_jinie(wordlist):
             word_lst = []
             for word in wordlist:
@@ -76,6 +70,9 @@ class WordBase(poc_grid.Grid):
                 print each_word
 
     def forward_filter(self,word_list,limit,start_point):
+		"""
+		Prune generated word list
+		"""
         sort_list =[]
         for word in word_list:
             reachmax = max(word,key=lambda item:item[0])[0]
